@@ -4,4 +4,4 @@ FactoryGirl.define do
     merchant
     status "MyString"
   end
-end 
+end
