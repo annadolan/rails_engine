@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "invoices endpoints" do
+describe "invoice items invoice endpoint" do
   context "GET /invoice_items/:id/invoice" do
     it "returns associated invoice" do
       invoice = create(:invoice)
