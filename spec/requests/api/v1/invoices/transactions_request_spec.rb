@@ -9,7 +9,7 @@ describe "invoices transactions endpoints" do
       get "/api/v1/invoices/#{invoice.id}/transactions"
 
       transactions = JSON.parse(response.body)
-
+      
       expect(response).to be_success
       expect(transactions.first["invoice_id"]).to eq(invoice.id)
     end
