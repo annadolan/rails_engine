@@ -22,7 +22,7 @@ Rails.application.routes.draw do
         get '/:id/invoices', to: 'invoices#index'
       end
       namespace :transactions do
-        get '/:id/invoice', to: 'invoices#show'
+        get '/:id/invoice', to: 'invoice#show'
       end
       namespace :customers do
         get '/:id/invoices', to: 'invoices#index'
