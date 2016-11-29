@@ -13,4 +13,17 @@ describe "invoice_items endpoints" do
       expect(invoice_items.count).to eq(3)
     end
   end
+
+  context "get /invoice_items/:id" do
+    it "returns a specific invoice_items" do
+      invoice_item = create(:invoice_item)
+
+      get "/api/v1/invoice_items/#{invoice_item.id}"
+
+      invoice_items_json = JSON.parse(response.body)
+
+      expect(response).to be_success
+      expect(invoice_items_json["quantity"]).to eq(1)
+    end
+  end
 end

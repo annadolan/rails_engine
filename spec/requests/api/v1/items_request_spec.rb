@@ -20,10 +20,10 @@ describe "items endpoints" do
 
       get "/api/v1/items/#{item.id}"
 
-      items = JSON.parse(response.body)
+      item_json = JSON.parse(response.body)
 
       expect(response).to be_success
-      expect(item["name"]).to eq("MyString")
+      expect(item_json["name"]).to eq("MyString")
     end
   end
 end
