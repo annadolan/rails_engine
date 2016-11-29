@@ -18,7 +18,6 @@ describe "items endpoints" do
     it "returns a specific item" do
       item = create(:item)
 
-
       get "/api/v1/items/#{item.id}"
 
       items = JSON.parse(response.body)
