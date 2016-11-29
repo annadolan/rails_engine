@@ -8,7 +8,7 @@ describe "invoices endpoints" do
       get "/api/v1/invoices.json"
 
       invoices = JSON.parse(response.body)
-      
+
       expect(response).to be_success
       expect(invoices.count).to eq(3)
     end
@@ -19,10 +19,10 @@ describe "invoices endpoints" do
 
       get "/api/v1/invoices/#{invoice.id}.json"
 
-      invoices = JSON.parse(response.body)
+      invoices_json = JSON.parse(response.body)
 
       expect(response).to be_success
-      expect(invoices["status"]).to eq("MyString")
+      expect(invoices_json["status"]).to eq("MyString")
     end
   end
 end
