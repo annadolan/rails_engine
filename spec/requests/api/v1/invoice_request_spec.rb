@@ -5,10 +5,10 @@ describe "invoices endpoints" do
     it "returns a list of all invoices" do
       create_list(:invoice, 3)
 
-      get "/api/v1/invoices"
+      get "/api/v1/invoices.json"
 
       invoices = JSON.parse(response.body)
-
+      
       expect(response).to be_success
       expect(invoices.count).to eq(3)
     end
@@ -17,7 +17,7 @@ describe "invoices endpoints" do
     it "returns a specific invoice" do
       invoice = create(:invoice)
 
-      get "/api/v1/invoices/#{invoice.id}"
+      get "/api/v1/invoices/#{invoice.id}.json"
 
       invoices = JSON.parse(response.body)
 
