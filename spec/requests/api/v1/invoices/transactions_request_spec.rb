@@ -14,16 +14,4 @@ describe "invoices transactions endpoints" do
       expect(transactions.first["invoice_id"]).to eq(invoice.id)
     end
   end
-#   context 'GET /transactions/:id' do
-#     it "returns a single transaction" do
-#       transaction = create(:transaction, result: "success")
-#
-#       get "/api/v1/transactions/#{transaction.id}"
-#
-#       transaction_json = JSON.parse(response.body)
-#
-#       expect(response).to be_success
-#       expect(transaction_json["result"]).to eq("success")
-#     end
-#   end
- end
+end
