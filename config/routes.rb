@@ -30,6 +30,8 @@ Rails.application.routes.draw do
         get '/find', to: 'find#show'
         get '/find_all', to: 'find#index'
         get '/most_revenue', to: 'most_revenue#index'
+        get '/:id/favorite_customer', to: 'favorite_customer#index'
+
       end
       namespace :transactions do
         get '/:id/invoice', to: 'invoice#show'
@@ -41,6 +43,7 @@ Rails.application.routes.draw do
         get '/:id/transactions', to: 'transactions#index'
         get '/find', to: 'find#show'
         get '/find_all', to: 'find#index'
+        get '/:id/favorite_merchant', to: 'favorite_merchant#index'
       end
       resources :invoices, only: [:index, :show]
       resources :items, only: [:index, :show]
