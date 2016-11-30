@@ -8,27 +8,37 @@ Rails.application.routes.draw do
         get '/:id/items', to: 'items#index'
         get '/:id/customer', to: 'customer#show'
         get '/:id/merchant', to: 'merchant#show'
+        get '/find', to: 'find#show'
+        get '/find_all', to: 'find#index'
       end
       namespace :items do
         get '/:id/invoice_items', to: 'invoice_items#index'
         get '/:id/merchant', to: 'merchant#show'
         get '/find', to: 'find#show'
+        get '/find_all', to: 'find#index'
       end
       namespace :invoice_items do
         get '/:id/invoice', to: 'invoice#show'
         get '/:id/item', to: 'item#show'
+        get '/find', to: 'find#show'
+        get '/find_all', to: 'find#index'
       end
       namespace :merchants do
         get '/:id/items', to: 'items#index'
         get '/:id/invoices', to: 'invoices#index'
         get '/find', to: 'find#show'
+        get '/find_all', to: 'find#index'
       end
       namespace :transactions do
         get '/:id/invoice', to: 'invoice#show'
+        get '/find', to: 'find#show'
+        get '/find_all', to: 'find#index'
       end
       namespace :customers do
         get '/:id/invoices', to: 'invoices#index'
         get '/:id/transactions', to: 'transactions#index'
+        get '/find', to: 'find#show'
+        get '/find_all', to: 'find#index'
       end
       resources :invoices, only: [:index, :show]
       resources :items, only: [:index, :show]
