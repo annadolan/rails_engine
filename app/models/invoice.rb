@@ -4,4 +4,12 @@ class Invoice < ApplicationRecord
   has_many :transactions
   has_many :invoice_items
   has_many :items, through: :invoice_items
+
+  def self.date_format(date = nil)
+    if date
+      where(:created_at => date.to_datetime)
+    else
+      all
+    end
+  end
 end
