@@ -19,7 +19,7 @@ describe "transactions find" do
       transaction1 = create_list(:transaction, 3, result: "good")
       transaction2 = create_list(:transaction, 3, result: "bad")
 
-      get "/api/v1/transactions/find_all?result=#{transaction1.first.result}"
+      get "/api/v1/transactions/find_all?result=good"
 
       transaction_json = JSON.parse(response.body)
 
