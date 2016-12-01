@@ -21,4 +21,12 @@ class Item < ApplicationRecord
     .order('invoice_items.quantity DESC, invoices.created_at DESC')
     .first
   end
+  
+  def self.most_revenue(quantity_input = nil)
+    joins(invoices: :transactions)
+    .merge(Transaction.successful)
+    .group(:id)
+    .order("sum(invoice_items.quantity * invoice_items.unit_price) DESC")
+    .limit(quantity_input)
+  end
 end
