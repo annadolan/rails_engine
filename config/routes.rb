@@ -18,6 +18,7 @@ Rails.application.routes.draw do
         get '/find_all', to: 'find#index'
         get '/:id/best_day', to: 'best_day#index'
         get '/most_items', to: 'most_items#index'
+        get '/most_revenue', to: 'most_revenue#index'
       end
       namespace :invoice_items do
         get '/:id/invoice', to: 'invoice#show'
