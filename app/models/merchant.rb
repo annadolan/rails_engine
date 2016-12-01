@@ -5,12 +5,19 @@ class Merchant < ApplicationRecord
   has_many :invoice_items, through: :invoices
   has_many :transactions, through: :invoices
 
-  def find_total_revenue(date = nil)
+  def find_revenue(date = nil)
     invoices.joins(:transactions)
     .merge(Invoice.date_format(date))
     .merge(Transaction.successful)
     .joins(:invoice_items)
     .sum("quantity * unit_price")
+  end
+
+  def self.find_total_revenue(date = nil)
+    joins(invoices: [:invoice_items, :transactions])
+    .merge(Invoice.date_format(date))
+    .merge(Transaction.successful)
+    .sum("invoice_items.quantity * invoice_items.unit_price")
   end
 
   def self.rank_by_items_sold(quantity_input = nil)
