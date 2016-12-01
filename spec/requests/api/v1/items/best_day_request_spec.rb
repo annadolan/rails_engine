@@ -9,7 +9,6 @@ describe "items best_day" do
       invoice_items = create(:invoice_item, invoice_id: invoice1.id, quantity: 10, item_id: item1.id)
       invoice_items = create(:invoice_item, invoice_id: invoice2.id, quantity: 10, item_id: item2.id)
 
-
       get "/api/v1/items/#{item1.id}/best_day"
 
       item_json = JSON.parse(response.body)
