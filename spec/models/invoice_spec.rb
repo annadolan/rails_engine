@@ -8,7 +8,7 @@ describe Invoice, type: :model do
      expect(invoice).to respond_to(:merchant)
     end
 
-   it "has many customer" do
+   it "belongs to customer" do
      invoice = create(:invoice)
 
      expect(invoice).to respond_to(:customer)
@@ -25,7 +25,7 @@ describe Invoice, type: :model do
 
       expect(invoice).to respond_to(:invoice_items)
     end
-    
+
     it "has many items" do
       invoice = create(:invoice)
 
