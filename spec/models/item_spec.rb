@@ -20,4 +20,12 @@ describe Item, type: :model do
       expect(item).to respond_to(:invoices)
     end
   end
+
+  context "methods" do
+    it "turns dollar into cents" do
+      item = create(:item, unit_price: 83333)
+
+      expect(Item.dollar_to_cents_one("833.33").id).to eq(item.id)
+    end
+  end
 end
