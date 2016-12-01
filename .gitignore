@@ -16,5 +16,4 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-coverage/.resultset.json
-coverage/index.html
+coverage
