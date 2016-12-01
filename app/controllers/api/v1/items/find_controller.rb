@@ -5,7 +5,11 @@ class Api::V1::Items::FindController < ApplicationController
   end
 
   def show
+    if params.include?("unit_price")
+    render json:  Item.dollar_to_cents_one(params['unit_price'])
+  else
     render json: Item.where(item_params).first
+    end
   end
 
  private
