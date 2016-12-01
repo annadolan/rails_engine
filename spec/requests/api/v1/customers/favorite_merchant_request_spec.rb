@@ -10,6 +10,7 @@ describe "customers favorite merchant endpoint" do
       transaction = create(:transaction, invoice_id: invoice1.id, result: "success")
       transaction = create(:transaction, invoice_id: invoice1.id, result: "success")
       transaction = create(:transaction, invoice_id: invoice2.id, result: "success")
+
       get "/api/v1/customers/#{customer1.id}/favorite_merchant"
 
       customer_json = JSON.parse(response.body)
