@@ -3,12 +3,10 @@ class InvoiceItem < ApplicationRecord
   belongs_to :invoice
 
   def self.dollar_to_cents_all(params)
-    a = params.gsub!(/[^0-9A-Za-z]/, '')
-    where(unit_price: a)
+    where(unit_price: params.gsub!(/[^0-9A-Za-z]/, ''))
   end
 
   def self.dollar_to_cents_one(params)
-    a = params.gsub!(/[^0-9A-Za-z]/, '')
-    find_by(unit_price: a )
+    find_by(unit_price: params.gsub!(/[^0-9A-Za-z]/, ''))
   end
 end
