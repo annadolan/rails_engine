@@ -17,7 +17,8 @@ class Item < ApplicationRecord
 
   def best_day
     invoices.joins(:invoice_items)
-    .order('invoice_items.quantity DESC, invoices.created_at DESC')
+    .group(:id)
+    .order('sum(invoice_items.quantity) DESC, invoices.created_at DESC')
     .first
   end
 
