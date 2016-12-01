@@ -13,9 +13,17 @@ class Merchant < ApplicationRecord
     .sum("quantity * unit_price")
   end
 
+  def self.rank_by_items_sold(quantity_input = nil)
+    joins(invoices: [:transactions, :invoice_items])
+    .merge(Transaction.successful)
+    .group(:id)
+    .order("sum(invoice_items.quantity) DESC")
+    .limit(quantity_input)
+  end
+
   def favorite_customer
     customers.joins(:transactions)
-    .where(transactions: {result: 'success'})
+    .merge(Transaction.successful)
     .group(:id).order("count(*) desc").first
   end
 end
