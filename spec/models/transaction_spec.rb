@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Transaction, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "relationships" do
+    it "belongs_to" do
+      transaction = create(:transaction)
+
+      expect(transaction).to respond_to(:transaction)
+    end
+  end
 end
