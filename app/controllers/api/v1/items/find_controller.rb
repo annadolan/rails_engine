@@ -6,8 +6,7 @@ class Api::V1::Items::FindController < ApplicationController
 
   def show
     if params.include?("unit_price")
-      a = params["unit_price"].gsub!(/[^0-9A-Za-z]/, '')
-    render json:  Item.find_by(unit_price: a)
+    render json:  Item.dollar_to_cents_one(params['unit_price'])
   else
     render json: Item.where(item_params).first
     end
