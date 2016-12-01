@@ -1,5 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe InvoiceItem, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe InvoiceItem, type: :model do
+   context "relationships" do
+     it "belongs to item" do
+       invoice_item = create(:invoice_item)
+
+       expect(invoice_item).to respond_to(:item)
+     end
+
+     it "belongs to invoice" do
+       invoice_item = create(:invoice_item)
+
+       expect(invoice_item).to respond_to(:invoice)
+     end
+   end
 end
