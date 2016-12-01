@@ -15,4 +15,10 @@ class Item < ApplicationRecord
     .order("sum(invoice_items.quantity) DESC")
     .limit(quantity_input)
   end
+
+  def best_day
+    invoices.joins(:invoice_items)
+    .order('invoice_items.quantity DESC, invoices.created_at DESC')
+    .first
+  end
 end
