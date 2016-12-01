@@ -10,7 +10,7 @@
         1,
         null,
         null,
-        0,
+        2,
         null,
         null
       ],
@@ -135,8 +135,25 @@
         1,
         null,
         1,
-        12,
+        14,
         null,
+        null
+      ],
+      "/Users/aciccone/Desktop/rails_engine/app/controllers/api/v1/customers/favorite_merchant_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/aciccone/Desktop/rails_engine/app/controllers/application_controller.rb": [
+        1,
+        null
+      ],
+      "/Users/aciccone/Desktop/rails_engine/app/serializers/merchant_serializer.rb": [
+        1,
+        1,
         null
       ],
       "/Users/aciccone/Desktop/rails_engine/app/controllers/api/v1/customers/find_controller.rb": [
@@ -154,10 +171,6 @@
         1,
         2,
         null,
-        null
-      ],
-      "/Users/aciccone/Desktop/rails_engine/app/controllers/application_controller.rb": [
-        1,
         null
       ],
       "/Users/aciccone/Desktop/rails_engine/app/serializers/customer_serializer.rb": [
@@ -327,11 +340,6 @@
         1,
         1,
         null,
-        null
-      ],
-      "/Users/aciccone/Desktop/rails_engine/app/serializers/merchant_serializer.rb": [
-        1,
-        1,
         null
       ],
       "/Users/aciccone/Desktop/rails_engine/app/controllers/api/v1/invoices/transactions_controller.rb": [
@@ -555,14 +563,6 @@
         0,
         0
       ],
-      "/Users/aciccone/Desktop/rails_engine/app/controllers/api/v1/customers/favorite_merchant_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
       "/Users/aciccone/Desktop/rails_engine/app/controllers/api/v1/items/best_day_controller.rb": [
         0,
         0,
@@ -590,6 +590,6 @@
         0
       ]
     },
-    "timestamp": 1480624261
+    "timestamp": 1480624975
   }
 }
