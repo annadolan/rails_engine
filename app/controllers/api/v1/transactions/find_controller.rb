@@ -1,5 +1,4 @@
 class Api::V1::Transactions::FindController < ApplicationController
-
   def index
     render json: Transaction.where(merchant_params)
   end
