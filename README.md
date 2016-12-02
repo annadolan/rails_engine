@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The goal of Rails Engine was to use Rails and ActiveRecord to build a JSON API which will expose SalesEngine data. We were able to build out single responsibility controllers to provide a well-designed and versioned API. We also used complex ActiveRecord queries to pull out data for our user. 
 
-Things you may want to cover:
+* Ruby version: 2.3.1
+* Rails version: 5.0.0.1
+* To use:
+ 1. git clone https://github.com/annadolan/rails_engine.git
+ 2. Bundle Install
+ 3. rake db:create db:migrate
+ 4. rake load_csv:all (loads all csv data)
 
-* Ruby version
+* Running Test suite:
+ 1. rspec
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Contributors [Anthony Ciccone](https://github.com/antciccone) and [Anna Dolan](https://github.com/annadolan)
