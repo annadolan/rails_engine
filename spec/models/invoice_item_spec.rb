@@ -22,6 +22,7 @@ describe InvoiceItem, type: :model do
       expect(InvoiceItem.dollar_to_cents_one("833.33").id).to eq(invoice_item.id)
     end
   end
+  
   describe ".dollar_to_cents_all" do
     it "converts dollars to cents" do
       invoice_item = create(:invoice_item, unit_price: 83333)
