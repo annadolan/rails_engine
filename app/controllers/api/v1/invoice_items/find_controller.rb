@@ -1,5 +1,4 @@
 class Api::V1::InvoiceItems::FindController < ApplicationController
-
   def index
     if params.include?("unit_price")
       render json:  InvoiceItem.dollar_to_cents_all(params['unit_price'])
