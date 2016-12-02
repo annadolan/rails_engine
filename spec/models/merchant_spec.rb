@@ -83,4 +83,35 @@ RSpec.describe Merchant, type: :model do
       expect(Merchant.rank_by_items_sold(10).second.id).to eq(merchant.id)
     end
   end
+
+  describe ".favorite_customer" do
+    it "returns the customer who has most successful transactions" do
+      merchant1, merchant2= create_list(:merchant, 2)
+      customer1, customer2 = create_list(:customer, 2)
+      invoice1 = create(:invoice, merchant_id: merchant1.id, customer_id: customer1.id)
+      invoice2 = create(:invoice, merchant_id: merchant2.id, customer_id: customer2.id)
+      transaction = create(:transaction, invoice_id: invoice1.id, result: 'success')
+      transaction = create(:transaction, invoice_id: invoice1.id, result: 'success')
+      transaction = create(:transaction, invoice_id: invoice2.id, result: 'success')
+
+      expect(merchant1.favorite_customer.id).to eq(customer1.id)
+    end
+  end
+
+  describe ".most_revenue" do
+    it "returns the top x merchants by total revenue" do
+      merchant1, merchant2, merchant3 = create_list(:merchant, 3)
+      invoice1 = create(:invoice, merchant_id: merchant1.id)
+      invoice2 = create(:invoice, merchant_id: merchant2.id)
+      invoice3 = create(:invoice, merchant_id: merchant3.id)
+      transaction = create(:transaction, invoice_id: invoice1.id, result: "success")
+      transaction = create(:transaction, invoice_id: invoice2.id, result: "success")
+      transaction = create(:transaction, invoice_id: invoice3.id, result: "success")
+      invoice_item = create(:invoice_item, invoice_id: invoice1.id, quantity: 50)
+      invoice_item = create(:invoice_item, invoice_id: invoice2.id, quantity: 2)
+      invoice_item = create(:invoice_item, invoice_id: invoice3.id, quantity: 600)
+
+      expect(Merchant.most_revenue(2).first.id).to eq(merchant3.id)
+    end
+  end
 end
