@@ -6,7 +6,7 @@ The goal of Rails Engine was to use Rails and ActiveRecord to build a JSON API w
 * Rails version: 5.0.0.1
 * To use:
  1. `git clone https://github.com/annadolan/rails_engine.git`
- 2. `bundle Install`
+ 2. `bundle`
  3. `rake db:create db:migrate`
  4. `rake load_csv:all` (loads all csv data)
 
