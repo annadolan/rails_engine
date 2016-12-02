@@ -13,6 +13,7 @@ describe "invoice_items find" do
       expect(response).to be_success
       expect(invoice_item_json["id"]).to eq(invoice_item.id)
     end
+
     it "returns an invoice item by unit price" do
       invoice_item = create(:invoice_item, quantity: 10)
       invoice_item1 = create(:invoice_item, unit_price: "600")
@@ -24,6 +25,7 @@ describe "invoice_items find" do
       expect(response).to be_success
       expect(invoice_item_json["id"]).to eq(invoice_item1.id)
     end
+
     it "returns an invoice item by item id" do
       item = create(:item, id: 6)
       item1 = create(:item, id: 7)
@@ -37,6 +39,7 @@ describe "invoice_items find" do
       expect(response).to be_success
       expect(invoice_item_json["id"]).to eq(invoice_item.id)
     end
+
     it "returns an invoice item by invoice id" do
       invoice = create(:invoice, id: 6)
       invoice1 = create(:invoice, id: 7)
@@ -65,6 +68,7 @@ describe "invoice_items find" do
       expect(invoice_item_json.first["id"]).to eq(invoice_items1.first.id)
       expect(invoice_item_json.count).to eq(3)
     end
+    
     it "returns multiple invoice items by unit price" do
       invoice_items1 = create_list(:invoice_item, 3, unit_price: "300")
       invoice_items2 = create_list(:invoice_item, 3, unit_price: "200")
