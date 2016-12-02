@@ -5,7 +5,7 @@ class Invoice < ApplicationRecord
   has_many :invoice_items
   has_many :items, through: :invoice_items
 
-  def self.date_format(date = nil)
+  def self.date_match(date = nil)
     if date
       where(:created_at => date.to_datetime)
     else

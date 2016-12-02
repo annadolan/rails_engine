@@ -11,7 +11,7 @@ describe "merchants revenue endpoint" do
       get "/api/v1/merchants/#{merchant.id}/revenue"
 
       revenue_json = JSON.parse(response.body)
-
+  
       expect(response).to be_success
       expect(revenue_json["revenue"]).to eq("5.0")
     end

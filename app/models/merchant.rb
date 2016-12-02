@@ -7,14 +7,14 @@ class Merchant < ApplicationRecord
 
   def find_revenue(date = nil)
     invoices.joins(:invoice_items, :transactions)
-    .merge(Invoice.date_format(date))
+    .merge(Invoice.date_match(date))
     .merge(Transaction.successful)
     .sum("quantity * unit_price")
   end
 
   def self.find_total_revenue(date = nil)
     joins(invoices: [:invoice_items, :transactions])
-    .merge(Invoice.date_format(date))
+    .merge(Invoice.date_match(date))
     .merge(Transaction.successful)
     .sum("quantity * unit_price")
   end
