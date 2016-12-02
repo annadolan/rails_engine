@@ -32,4 +32,11 @@ describe Invoice, type: :model do
       expect(invoice).to respond_to(:items)
     end
   end
+  describe ".date_match" do
+    it "returns matched date" do
+      invoice = create(:invoice, created_at: '2012-03-11 00:54:09 UTC')
+
+      expect(Invoice.date_match('2012-03-11 00:54:09 UTC').first.id).to eq(invoice.id)
+    end
+  end
 end
