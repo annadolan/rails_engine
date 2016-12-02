@@ -65,4 +65,22 @@ RSpec.describe Merchant, type: :model do
       expect(Merchant.find_total_revenue('2012-03-11 00:54:09 UTC')).to eq(1200.0)
     end
   end
+
+  describe ".rank_by_items_sold" do
+    it "returns merchants ranked by total number of items sold" do
+      merchant = create(:merchant)
+      merchant1 = create(:merchant)
+      invoice = create(:invoice, merchant_id: merchant.id)
+      invoice1 = create(:invoice, merchant_id: merchant1.id)
+      transaction = create(:transaction, invoice_id: invoice.id, result: "success")
+      transaction = create(:transaction, invoice_id: invoice1.id, result: "success")
+      invoice_item = create(:invoice_item, invoice_id: invoice.id, quantity: 50)
+      invoice_item = create(:invoice_item, invoice_id: invoice1.id, quantity: 2)
+      invoice_item = create(:invoice_item, invoice_id: invoice1.id, quantity: 600)
+
+      expect(Merchant.rank_by_items_sold.first.id).to eq(merchant1.id)
+      expect(Merchant.rank_by_items_sold(10).first.id).to eq(merchant1.id)
+      expect(Merchant.rank_by_items_sold(10).second.id).to eq(merchant.id)
+    end
+  end
 end
