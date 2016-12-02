@@ -16,7 +16,7 @@ describe "merchants favrorite customer endpoint" do
       favorite_customer_json = JSON.parse(response.body)
 
       expect(response).to be_success
-      expect(merchant1.favorite_customer.id).to eq(customer1.id) 
+      expect(favorite_customer_json['id']).to eq(customer1.id) 
     end
   end
 end

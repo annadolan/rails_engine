@@ -13,10 +13,10 @@ describe "customers favorite merchant endpoint" do
 
       get "/api/v1/customers/#{customer1.id}/favorite_merchant"
 
-      customer_json = JSON.parse(response.body)
+      merchant_json = JSON.parse(response.body)
 
       expect(response).to be_success
-      expect(customer1.favorite_merchant.id).to eq(merchant1.id)
+      expect(merchant_json['id']).to eq(merchant1.id)
     end
   end
 end
